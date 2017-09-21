@@ -2,3 +2,4 @@
 venv/
 .vscode/
 .py[oc]
+__pycache__/
