@@ -1,4 +1,4 @@
-#!./venv/bin/python3
+#!/home/undead404/vntu-schedule-bot/venv/bin/python3
 """
 acquiring today's schedules and sending it to channels
 """
@@ -57,7 +57,7 @@ def get_oddity_evenness(date):
     return EVEN_WEEK if (date - ANCHOR_DATE).days // DAYS_IN_WEEK % 2 else ODD_WEEK
 
 
-def load_schedule(filename="schedule.json"):
+def load_schedule(filename="/home/undead404/vntu-schedule-bot/schedule.json"):
     """ loading schedule data from a file """
     with open(filename) as infile:
         return json.load(infile)

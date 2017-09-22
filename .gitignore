@@ -1,5 +1,5 @@
 .env
 venv/
 .vscode/
-.py[oc]
+*.py[cod]
 __pycache__/
