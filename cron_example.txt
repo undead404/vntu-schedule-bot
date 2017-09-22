@@ -1,0 +1,2 @@
+My cron rule:
+0 6 * * * /home/undead404/vntu-schedule-bot/root.py >> /home/undead404/vntu-schedule-bot/log.txt
