@@ -9,8 +9,7 @@ import telepot
 
 # ANCHOR_DATE is a date of some Monday in an odd week
 ANCHOR_DATE = datetime.strptime(config("ANCHOR_DATE"), "%d.%m.%Y").date()
-API_TOKEN = config("API_TOKEN")
-BOT = telepot.Bot(API_TOKEN)
+BOT = telepot.Bot(config("API_TOKEN"))
 DAYS_IN_WEEK = 7
 ODD_WEEK = 0
 EVEN_WEEK = 1

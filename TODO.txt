@@ -1,0 +1,4 @@
+1. /help
+2. 01.01
+3. localization
+4. easter eggs (idi nahui)
