@@ -49,6 +49,7 @@ class Chat(object):
         subgroups[self.__id] = self.__subgroup_number
         with open("subgroups.json", "w") as subgroups_file:
             json.dump(subgroups, subgroups_file)
+        BOT.sendMessage(self.__id, "Підгрупа {} - я запам'ятав.".format(self.__subgroup_number))
 
     def greet(self, message):
         BOT.sendMessage(
@@ -103,7 +104,7 @@ class Chat(object):
     def sendSchedule(self, message):
         try:
             question = message["text"].lower().strip(" .?")
-            if question.startswith("/changeSubgroup "):
+            if question.startswith("/changesubgroup "):
                 subgroup_number = int(question.split(" ")[1])
                 self.change_subgroup(subgroup_number)
                 self.okay(message)
