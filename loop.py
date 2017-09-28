@@ -130,21 +130,23 @@ def guess_date(text):
         return guess_date(text[len("після"):]) + datetime.timedelta(days=1)
     elif text.startswith("поза"):
         return guess_date(text[len("поза"):]) - datetime.timedelta(days=1)
-    elif text.startswith("сьогодні") or text.startswith("нині"):
+    elif "сьогодні" in text or "нині" in text:
         return datetime.datetime.now().date()
-    elif text.startswith("вчора") or text.startswith("учора"):
+    elif "вчора" in text or "учора" in text:
         return datetime.datetime.now().date() - datetime.timedelta(days=1)
-    elif text.startswith("завтра"):
+    elif "завтра" in text:
         return datetime.datetime.now().date() + datetime.timedelta(days=1)
     else:
-        result = DATE_FULL_RE.match(text)
+        result = re.search(DATE_FULL_RE, text)
+        # result = DATE_FULL_RE.match(text)
         if result is not None:
             day = int(result.group(1))
             month = int(result.group(2))
             year = int(result.group(3))
             return datetime.date(year, month, day)
         else:
-            result = DATE_SHORT_RE.match(text)
+            result = re.search(DATE_SHORT_RE, text)
+            # result = DATE_SHORT_RE.match(text)
             if result is not None:
                 day = int(result.group(1))
                 month = int(result.group(2))
